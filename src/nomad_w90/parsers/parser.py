@@ -15,6 +15,10 @@ from nomad.parsing.parser import MatchingParser
 
 from nomad.datamodel.metainfo.workflow import Workflow
 
+from nomad_simulations.schema_packages.general import Simulation, Program
+
+from nomad.parsing.file_parser import Quantity, TextParser, DataTextParser
+
 configuration = config.get_plugin_entry_point(
     'nomad_w90.parsers:parser_entry_point'
 )
@@ -30,4 +34,13 @@ class NewParser(MatchingParser):
     ) -> None:
         logger.info('NewParser.parse', parameter=configuration.parameter)
 
-        archive.workflow2 = Workflow(name='test')
+        simulation = Simulation()
+        archive.data = simulation
+
+        program = Program(name='Wannier90')
+        simulation.program = program
+        print("Hello!")
+
+
+
+        #archive.workflow2 = Workflow(name='test')
