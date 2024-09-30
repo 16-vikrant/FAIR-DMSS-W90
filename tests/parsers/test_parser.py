@@ -1,6 +1,7 @@
 import logging
 
 from nomad.datamodel import EntryArchive
+
 from nomad_w90.parsers.parser import NewParser
 
 
